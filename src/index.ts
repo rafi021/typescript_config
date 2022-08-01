@@ -1,10 +1,18 @@
-/* Type Assertions */
-let phone = document.getElementById('phone') as HTMLInputElement;
+/* Unknown & Never Types */
 
-// Or
+function render (document:unknown){
+    /*we have to narrow down to a specifc type before we can perform any operation
+    on an unknown types */
 
-let phone1 = <HTMLInputElement> document.getElementById('phone');
+    if(typeof document === 'string'){
+        document.toUpperCase();
+    }
+}
 
 
-console.log(phone.value); // accessing the input field value
-console.log(phone1.value);
+function proccesEvents() : never{
+    /*This function never returns because it has an infinte loop */
+    while (true){
+        
+    }
+}
