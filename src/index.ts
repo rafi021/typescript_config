@@ -1,4 +1,10 @@
-let user: [number, string] = [1, 'Ibrahim'];
+/*enums - pascalCase */
 
-console.log(user[0].toString());
-console.log(user[1].toUpperCase());
+enum Size { small, medium, large };
+enum Notify {success = 1, error = 0};
+
+let mySize: Size = Size.medium;
+console.log(mySize);
+
+let systemNotify: Notify = Notify.success;
+console.log(systemNotify);
