@@ -1,18 +1,33 @@
-/* Unknown & Never Types */
+/*Classes */
 
-function render (document:unknown){
-    /*we have to narrow down to a specifc type before we can perform any operation
-    on an unknown types */
+class Account {
+    nickname?:string;
 
-    if(typeof document === 'string'){
-        document.toUpperCase();
+    constructor(
+        public readonly id:number,
+        public owner: string,        
+        private _balance: number
+    ){}
+
+    // getters & setters
+    get balance() :number{
+        return this._balance;
     }
+
+    set balance(value:number){
+        if(value<0)
+            throw new Error('Invalid Value');
+        this._balance = value;
+    }
+
+    deposit(value: number){
+        if(value<0)
+            throw new Error('Invalid Value');
+        this._balance += value;
+    }
+
 }
 
-
-function proccesEvents() : never{
-    /*This function never returns because it has an infinte loop */
-    while (true){
-        
-    }
-}
+let account = new Account(1, 'Ibrahim', 0);
+account.deposit(5000);
+console.log(account.balance)
