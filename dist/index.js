@@ -1,25 +1,19 @@
 "use strict";
-class Account {
-    constructor(id, owner, _balance) {
-        this.id = id;
-        this.owner = owner;
-        this._balance = _balance;
+class Ride {
+    start() {
+        Ride._activeRides++;
     }
-    get balance() {
-        return this._balance;
+    stop() {
+        Ride._activeRides--;
     }
-    set balance(value) {
-        if (value < 0)
-            throw new Error('Invalid Value');
-        this._balance = value;
-    }
-    deposit(value) {
-        if (value < 0)
-            throw new Error('Invalid Value');
-        this._balance += value;
+    static get activeRides() {
+        return Ride._activeRides;
     }
 }
-let account = new Account(1, 'Ibrahim', 0);
-account.deposit(5000);
-console.log(account.balance);
+Ride._activeRides = 0;
+let ride1 = new Ride();
+ride1.start();
+let ride2 = new Ride();
+ride2.start();
+console.log(Ride.activeRides);
 //# sourceMappingURL=index.js.map
