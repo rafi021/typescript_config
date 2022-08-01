@@ -1,8 +1,11 @@
-let Employee : {
+type Employee = {
     id: number, 
     name: string,
     retire: (date: Date) => void;
 }
+
+
+let employee : Employee
 = {
     id: 1,
     name: "Ibrahim", 
@@ -11,5 +14,5 @@ let Employee : {
     }
 }
 
-console.log(Employee);
-console.log(Employee.retire(new Date));
+console.log(employee);
+console.log(employee.retire(new Date));
