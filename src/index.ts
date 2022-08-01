@@ -1,4 +1,4 @@
-/*Inheritance */
+/*Ploymorphisum */
 
 class Person {
     constructor(
@@ -31,8 +31,23 @@ class Teacher extends Person{
     }
 }
 
+class Principle extends Person{
+    override get fullName(): string {
+        return "Principle "+ super.fullName;
+    }
+}
 
 let teacher = new Teacher("Mahmud", "Ibrahim");
 
-console.log(teacher.fullName);
+function printNames (people: Person[]){
+    for(let person of people)
+        console.log(person.fullName);
+}
+
+printNames([
+    new Student (1, "M", "Ibrahim"),
+    new Teacher ('Max', 'Gain'),
+    new Principle('Mr.', 'Rosebelt')
+])
+
 
