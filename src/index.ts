@@ -1,24 +1,14 @@
-/*intersection types */
+/*Literal types */
 
-type Dragable = {
-    drag: () => void
-}
+type Quantity = 50|100;
+type Metric = 'cm'|'inch';
 
-type Resizeable = {
-    resize: () => void
-}
+let qty: Quantity = 100; // OK
+let qty1: Quantity = 50; // OK
+let qty2: Quantity = 30; // Not OK only Quantity values
 
-type UIWidget = Dragable & Resizeable; // intersection of types
 
-let textBox: UIWidget = {
-    drag: () => {
-        console.log(' drag this oject');
-    },
-    resize: () => {
-        console.log(' resize this oject');
-    }
-}
-
-console.log(textBox);
-textBox.drag();
-textBox.resize();
+let unit_value: Metric = 'inch'; // OK
+let unit_value1: Metric = 'cm'; // OK
+let unit_value2: Metric = 'mm'; // Not OK only Metric values
+ 
