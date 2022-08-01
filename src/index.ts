@@ -1,7 +1,15 @@
-function calculateTax(income:number, taxtYear?:number) :number{
-    if((taxtYear || 2022) <50000)
-        return income*1.2;
-    return income*1.3;
+let Employee : {
+    id: number, 
+    name: string,
+    retire: (date: Date) => void;
+}
+= {
+    id: 1,
+    name: "Ibrahim", 
+    retire: (date: Date) => {
+        console.log(date);
+    }
 }
 
-console.log(calculateTax(20000));
+console.log(Employee);
+console.log(Employee.retire(new Date));
