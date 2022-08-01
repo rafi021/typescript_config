@@ -5,7 +5,7 @@ class Person {
         public firstName:string, public lastName:string
     ){}
 
-    get fullName(){
+    get fullName():string {
         return this.firstName+' '+ this.lastName;
     }
 
@@ -23,4 +23,16 @@ class Student extends Person{
         super(firstName, lastName)
     }
 }
+
+class Teacher extends Person{
+
+    override get fullName(): string {
+        return 'Professor ' + super.fullName
+    }
+}
+
+
+let teacher = new Teacher("Mahmud", "Ibrahim");
+
+console.log(teacher.fullName);
 
