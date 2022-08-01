@@ -1,14 +1,11 @@
 "use strict";
-var _a;
-function fetchData(url) {
-    if (url) {
-        console.log(url);
-    }
-    return {
-        data: null, error: null
-    };
+function echo(value) {
+    return value;
 }
-let user = fetchData('url');
-let result = fetchData('url');
-(_a = result.data) === null || _a === void 0 ? void 0 : _a.title;
+console.log(echo('1'));
+console.log(echo(1));
+function echo2(value) {
+    return value;
+}
+console.log(echo2({ name: 'Ibrahim' }));
 //# sourceMappingURL=index.js.map

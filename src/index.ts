@@ -1,26 +1,27 @@
-/*Generic Interfaces */
-interface Result<T>{
-    data: T|null,
-    error: string|null
+/*Generic Constraints */
+
+// function echo <T>(value: T): T{
+//     return value;
+// }
+
+
+//limit only number or string  input type = T; return type = T
+function echo <T extends number|string>(value: T): T{
+    return value;
 }
 
-function fetchData<T>(url:string):Result<T>{
-    if(url){
-        console.log(url);
-    }
-    return {
-        data: null, error:null
-    };
+console.log(echo('1')); 
+console.log(echo(1)); 
+// console.log(echo(true));  // not OK
+
+// By using Shape/ Interface
+interface Person{
+    name:string
 }
 
-interface User{
-    username: string;
+
+function echo2 <T extends Person>(value: T): T{
+    return value;
 }
 
-interface Product{
-    title:string;
-}
-
-let user = fetchData<User>('url');
-let result = fetchData<Product>('url');
-result.data?.title;
+console.log(echo2({name: 'Ibrahim'})); 
