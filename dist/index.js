@@ -1,11 +1,11 @@
 "use strict";
-function greet(name) {
-    if (name)
-        console.log(name.toUpperCase());
-    else
-        console.log('Heelo');
+function getCustomer(id) {
+    return id === 0 ? null : { birthday: new Date() };
 }
-greet("Ibrahim");
-greet(null);
-greet(undefined);
+let customer = getCustomer(0);
+console.log(customer);
+let customer1 = getCustomer(1);
+console.log(customer1);
+let customer2 = getCustomer(1);
+console.log(customer2 === null || customer2 === void 0 ? void 0 : customer2.birthday);
 //# sourceMappingURL=index.js.map
