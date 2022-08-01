@@ -1,22 +1,32 @@
-/* Abstract Classes and Methods 
+/* Interfaces  */
 
-An abstract class is a class with partial implementation.
-Abstract classes cann;t be instantiated and have to be inherited.
+// abstract class Calender {
+//     constructor(public name:string){}
+//     abstract addEvent(): void;
+//     abstract removeEvent(): void;
+// }
 
-*/
-
-abstract class Shape {
-    constructor(public color:string) {}
-
-    abstract render() :void;
+interface Calender{
+    name:string,
+    addEvent():void;
+    removeEvent():void;
 }
 
-class Circle extends Shape{
-    constructor(public radius:number, color:string){
-        super(color);
-    }
+interface CloudCalendar extends Calender{
+    sync():void;
+}
 
-    override render(): void {
-        console.log('Rendering a circle');
+
+class GoogleCalendar implements Calender{
+    constructor(public name:string){}
+    addEvent(): void {
+        throw new Error('Method is not implemented');
+    }
+    
+    removeEvent(): void {
+        throw new Error('Method is not implemented');
     }
 }
+
+let calendar = new GoogleCalendar('google');
+calendar.addEvent();
