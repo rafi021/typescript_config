@@ -1,9 +1,13 @@
 "use strict";
-function kgToLbs(weight) {
-    if (typeof weight === 'number')
-        return weight * 2.2;
-    else
-        return parseInt(weight) * 2.2;
-}
-console.log(kgToLbs('10'));
+let textBox = {
+    drag: () => {
+        console.log(' drag this oject');
+    },
+    resize: () => {
+        console.log(' resize this oject');
+    }
+};
+console.log(textBox);
+textBox.drag();
+textBox.resize();
 //# sourceMappingURL=index.js.map

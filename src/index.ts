@@ -1,11 +1,24 @@
-/*union types */
+/*intersection types */
 
-function kgToLbs(weight: number|string):number{
-    // Narrowing
-    if(typeof weight === 'number')
-        return weight*2.2;
-    else
-    return parseInt(weight)*2.2;
+type Dragable = {
+    drag: () => void
 }
 
-console.log(kgToLbs('10'));
+type Resizeable = {
+    resize: () => void
+}
+
+type UIWidget = Dragable & Resizeable; // intersection of types
+
+let textBox: UIWidget = {
+    drag: () => {
+        console.log(' drag this oject');
+    },
+    resize: () => {
+        console.log(' resize this oject');
+    }
+}
+
+console.log(textBox);
+textBox.drag();
+textBox.resize();
