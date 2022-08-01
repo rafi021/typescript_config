@@ -1,13 +1,11 @@
 "use strict";
-let textBox = {
-    drag: () => {
-        console.log(' drag this oject');
-    },
-    resize: () => {
-        console.log(' resize this oject');
-    }
-};
-console.log(textBox);
-textBox.drag();
-textBox.resize();
+function greet(name) {
+    if (name)
+        console.log(name.toUpperCase());
+    else
+        console.log('Heelo');
+}
+greet("Ibrahim");
+greet(null);
+greet(undefined);
 //# sourceMappingURL=index.js.map
