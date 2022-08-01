@@ -1,6 +1,6 @@
 "use strict";
-function calculateTax(income) {
-    if (income < 50000)
+function calculateTax(income, taxtYear) {
+    if ((taxtYear || 2022) < 50000)
         return income * 1.2;
     return income * 1.3;
 }
