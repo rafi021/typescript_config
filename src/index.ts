@@ -1,33 +1,12 @@
-/*Classes */
+/**Index Signatures */
 
-class Account {
-    nickname?:string;
-
-    constructor(
-        public readonly id:number,
-        public owner: string,        
-        private _balance: number
-    ){}
-
-    // getters & setters
-    get balance() :number{
-        return this._balance;
-    }
-
-    set balance(value:number){
-        if(value<0)
-            throw new Error('Invalid Value');
-        this._balance = value;
-    }
-
-    deposit(value: number){
-        if(value<0)
-            throw new Error('Invalid Value');
-        this._balance += value;
-    }
-
+class SeatAssignment{
+    // A1, A2, ... seats
+    // Ibrahim, Mahmud, ..... customer name
+    [seatNumber: string]: string;   // A1 => 'Ibrahim
 }
 
-let account = new Account(1, 'Ibrahim', 0);
-account.deposit(5000);
-console.log(account.balance)
+let seats = new SeatAssignment();
+seats.A1 = 'Ibrahim';
+// or
+seats['A2'] = 'Mahmud';
