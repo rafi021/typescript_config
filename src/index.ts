@@ -1,18 +1,26 @@
-/*Generic Functions */
-
-function wrapInArray<T>(value: T){
-    return [value];
+/*Generic Interfaces */
+interface Result<T>{
+    data: T|null,
+    error: string|null
 }
 
-let numbers = wrapInArray(1);
-console.log(numbers);
-
-
-class ArrayUtils{
-    static wrapInArray <T>(value: T){
-        return [value];
+function fetchData<T>(url:string):Result<T>{
+    if(url){
+        console.log(url);
     }
+    return {
+        data: null, error:null
+    };
 }
 
-let numbers1= ArrayUtils.wrapInArray(1);
-console.log(numbers1); 
+interface User{
+    username: string;
+}
+
+interface Product{
+    title:string;
+}
+
+let user = fetchData<User>('url');
+let result = fetchData<Product>('url');
+result.data?.title;

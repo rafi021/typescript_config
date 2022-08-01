@@ -1,14 +1,14 @@
 "use strict";
-function wrapInArray(value) {
-    return [value];
-}
-let numbers = wrapInArray(1);
-console.log(numbers);
-class ArrayUtils {
-    static wrapInArray(value) {
-        return [value];
+var _a;
+function fetchData(url) {
+    if (url) {
+        console.log(url);
     }
+    return {
+        data: null, error: null
+    };
 }
-let numbers1 = ArrayUtils.wrapInArray(1);
-console.log(numbers1);
+let user = fetchData('url');
+let result = fetchData('url');
+(_a = result.data) === null || _a === void 0 ? void 0 : _a.title;
 //# sourceMappingURL=index.js.map
