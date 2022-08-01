@@ -1,23 +1,26 @@
-/* Static Members */
+/*Inheritance */
 
-class Ride {
-    private static _activeRides: number = 0;
+class Person {
+    constructor(
+        public firstName:string, public lastName:string
+    ){}
 
-    start() {
-        Ride._activeRides++;
+    get fullName(){
+        return this.firstName+' '+ this.lastName;
     }
-    stop(){
-        Ride._activeRides--;
-    }
 
-    static get activeRides() {
-        return Ride._activeRides;
+    walk() {
+        console.log("Walking");
     }
 }
 
-let ride1 = new Ride();
-ride1.start();
-let ride2 = new Ride();
-ride2.start();
+class Student extends Person{
+    constructor(
+        public studentId:number,
+        firstName: string,
+        lastName: string
+    ){
+        super(firstName, lastName)
+    }
+}
 
-console.log(Ride.activeRides);
