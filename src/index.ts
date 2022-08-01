@@ -1,32 +1,11 @@
-/* Interfaces  */
+/*Generic Class/ Template Class */
 
-// abstract class Calender {
-//     constructor(public name:string){}
-//     abstract addEvent(): void;
-//     abstract removeEvent(): void;
-// }
-
-interface Calender{
-    name:string,
-    addEvent():void;
-    removeEvent():void;
+class KeyValuePair<K,V>{
+    constructor(public key:K, public value:V){}
 }
 
-interface CloudCalendar extends Calender{
-    sync():void;
-}
+let pair = new KeyValuePair('1', 'a'); // implicit
+let pair1 = new KeyValuePair<number, string>(1, 'a'); // explicit
 
-
-class GoogleCalendar implements Calender{
-    constructor(public name:string){}
-    addEvent(): void {
-        throw new Error('Method is not implemented');
-    }
-    
-    removeEvent(): void {
-        throw new Error('Method is not implemented');
-    }
-}
-
-let calendar = new GoogleCalendar('google');
-calendar.addEvent();
+console.log(pair);
+console.log(pair1);
