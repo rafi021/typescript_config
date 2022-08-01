@@ -1,10 +1,7 @@
-/*enums - pascalCase */
+function calculateTax(income:number) :number{
+    if(income<50000)
+        return income*1.2;
+    return income*1.3;
+}
 
-enum Size { small, medium, large };
-enum Notify {success = 1, error = 0};
-
-let mySize: Size = Size.medium;
-console.log(mySize);
-
-let systemNotify: Notify = Notify.success;
-console.log(systemNotify);
+console.log(calculateTax(20000));
