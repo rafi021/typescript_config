@@ -1,34 +1,32 @@
-/*Extending Generic Classes */
-interface Product {
-    name:string;
-    price:number;
+/* The key of Operator */
+
+interface Product{
+    name: string;
+    price: number;
 }
 
 class Store<T>{
-    private _objects: T[] = [];
+    protected _objects: T[] = [];
 
-    /* add new value type = T into the _objects private array variable */
-    add(obj: T):void{
-        this._objects.push(obj)
+    add(obj: T): void{
+        this._objects.push(obj);
+    }
+
+    // T is Product
+    // Key of T => 'name'|'price'
+
+    find(property: keyof T, value:unknown):T|undefined{
+        return this._objects.find((obj) => {
+            obj[property] === value
+        })
     }
 }
 
-// Pass on the generic type parameter
-class CompressibleStore<T> extends Store<T>{
-    compress() {
-        console.log('Compressing store');
-    }
-}
+let store = new Store<Product>();
+store.add({
+    name: 'a', price: 1
+});
 
-let store = new CompressibleStore<Product>();
-store.compress();
-
-
-// Fix the generic type parameter
-class ProductStore extends Store<Product>{
-    filterByCategory(category:string): Product[]{
-        return [
-            
-        ];
-    }
-}
+console.log(store.find('name', 'a')); 
+console.log(store.find('price', 1));
+// store.find('othervalue', 1);  // Not OK 
