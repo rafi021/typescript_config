@@ -1,11 +1,6 @@
 "use strict";
-function getCustomer(id) {
-    return id === 0 ? null : { birthday: new Date() };
-}
-let customer = getCustomer(0);
-console.log(customer);
-let customer1 = getCustomer(1);
-console.log(customer1);
-let customer2 = getCustomer(1);
-console.log(customer2 === null || customer2 === void 0 ? void 0 : customer2.birthday);
+let phone = document.getElementById('phone');
+let phone1 = document.getElementById('phone');
+console.log(phone.value);
+console.log(phone1.value);
 //# sourceMappingURL=index.js.map

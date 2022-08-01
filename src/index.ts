@@ -1,19 +1,10 @@
-/* Optional chaining */
-type Customer = {
-    birthday: Date
-};
+/* Type Assertions */
+let phone = document.getElementById('phone') as HTMLInputElement;
 
-function getCustomer (id: number): Customer|null|undefined{
-    return id === 0 ? null: { birthday: new Date() };
-}
+// Or
 
-let customer = getCustomer(0);
-console.log(customer);
-
-let customer1 = getCustomer(1);
-console.log(customer1);
+let phone1 = <HTMLInputElement> document.getElementById('phone');
 
 
-// Optional Property access parameter
-let customer2 = getCustomer(1);
-console.log(customer2?.birthday);
+console.log(phone.value); // accessing the input field value
+console.log(phone1.value);
