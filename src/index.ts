@@ -1,27 +1,34 @@
-/*Generic Constraints */
-
-// function echo <T>(value: T): T{
-//     return value;
-// }
-
-
-//limit only number or string  input type = T; return type = T
-function echo <T extends number|string>(value: T): T{
-    return value;
+/*Extending Generic Classes */
+interface Product {
+    name:string;
+    price:number;
 }
 
-console.log(echo('1')); 
-console.log(echo(1)); 
-// console.log(echo(true));  // not OK
+class Store<T>{
+    private _objects: T[] = [];
 
-// By using Shape/ Interface
-interface Person{
-    name:string
+    /* add new value type = T into the _objects private array variable */
+    add(obj: T):void{
+        this._objects.push(obj)
+    }
 }
 
-
-function echo2 <T extends Person>(value: T): T{
-    return value;
+// Pass on the generic type parameter
+class CompressibleStore<T> extends Store<T>{
+    compress() {
+        console.log('Compressing store');
+    }
 }
 
-console.log(echo2({name: 'Ibrahim'})); 
+let store = new CompressibleStore<Product>();
+store.compress();
+
+
+// Fix the generic type parameter
+class ProductStore extends Store<Product>{
+    filterByCategory(category:string): Product[]{
+        return [
+            
+        ];
+    }
+}
