@@ -1,11 +1,18 @@
-/*Generic Class/ Template Class */
+/*Generic Functions */
 
-class KeyValuePair<K,V>{
-    constructor(public key:K, public value:V){}
+function wrapInArray<T>(value: T){
+    return [value];
 }
 
-let pair = new KeyValuePair('1', 'a'); // implicit
-let pair1 = new KeyValuePair<number, string>(1, 'a'); // explicit
+let numbers = wrapInArray(1);
+console.log(numbers);
 
-console.log(pair);
-console.log(pair1);
+
+class ArrayUtils{
+    static wrapInArray <T>(value: T){
+        return [value];
+    }
+}
+
+let numbers1= ArrayUtils.wrapInArray(1);
+console.log(numbers1); 
