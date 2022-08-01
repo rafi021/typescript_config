@@ -1,53 +1,22 @@
-/*Ploymorphisum */
+/* Abstract Classes and Methods 
 
-class Person {
-    constructor(
-        public firstName:string, public lastName:string
-    ){}
+An abstract class is a class with partial implementation.
+Abstract classes cann;t be instantiated and have to be inherited.
 
-    get fullName():string {
-        return this.firstName+' '+ this.lastName;
-    }
+*/
 
-    walk() {
-        console.log("Walking");
-    }
+abstract class Shape {
+    constructor(public color:string) {}
+
+    abstract render() :void;
 }
 
-class Student extends Person{
-    constructor(
-        public studentId:number,
-        firstName: string,
-        lastName: string
-    ){
-        super(firstName, lastName)
+class Circle extends Shape{
+    constructor(public radius:number, color:string){
+        super(color);
+    }
+
+    override render(): void {
+        console.log('Rendering a circle');
     }
 }
-
-class Teacher extends Person{
-
-    override get fullName(): string {
-        return 'Professor ' + super.fullName
-    }
-}
-
-class Principle extends Person{
-    override get fullName(): string {
-        return "Principle "+ super.fullName;
-    }
-}
-
-let teacher = new Teacher("Mahmud", "Ibrahim");
-
-function printNames (people: Person[]){
-    for(let person of people)
-        console.log(person.fullName);
-}
-
-printNames([
-    new Student (1, "M", "Ibrahim"),
-    new Teacher ('Max', 'Gain'),
-    new Principle('Mr.', 'Rosebelt')
-])
-
-
